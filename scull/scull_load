@@ -11,9 +11,12 @@ else
     group="wheel"
 fi
 
+# get current dir - absolute path of the directory containing this script
+DIR=$(realpath $(dirname $0))
+
 # invoke insmod with all arguments we got
 # and use a pathname, as insmod doesn't look in . by default
-insmod ./$module.ko $* || exit 1
+insmod ${DIR}/$module.ko $* || exit 1
 
 # retrieve major number
 major=$(awk "\$2==\"$module\" {print \$1}" /proc/devices)

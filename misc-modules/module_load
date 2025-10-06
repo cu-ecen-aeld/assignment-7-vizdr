@@ -14,6 +14,7 @@ fi
 
 # absolute path of the directory containing the script file
 DIR=$(realpath $(dirname $0))
+echo "set path DIR= ${DIR}
 
 set -e
 # Group: since distributions do it differently, look for wheel or use staff
